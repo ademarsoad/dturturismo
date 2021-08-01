@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+}
+.cabecalho{
+    background-color: #3c0202;
+    padding: 15px;
+    margin: 10px 0px 10px 0px;
+}
+.navegacao{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    
+}
+.navegacao__lista{
+    padding: 0px;
+    list-style: none;
+    display: inline-block;
+}
+.navegacao__lista__rodape{
+    list-style: none;
+    display: inline;
+}
+.navegacao__item{
+    text-decoration: none;
+    font-size: 18px;
+    color: #f44242;
+    
+}
+.logo{
+    background-image: url("../img/Logo-DED-Tur150x150.png");
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    text-indent: -9999px;
+    margin: 0%;
+    
+}
+.imgcentral{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+
+}
+.sessaoprincipal{
+    padding: 10px;
+    overflow: auto;
+}
+.sessaoprincipal__dentro{
+    margin: 1px;   
+    background-color: #d4eaf9;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.sessaoprincipal__img{
+    background-color: #fff;
+    padding: 10px;
+}
+.sobrenos__texto{
+    padding: 10px 50px 10px 50px;
+    font-size: 20px;
+}
+.rodape{
+    
+    background-color: #3c0202;
+    overflow: auto;
+}
+
+.rodape__coluna{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    
+}
+.rodape__titulo{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    padding: 0 10px 10px 0;
+    font-size: 18px;
+}
+.rodape__lista-links{
+    padding: 0%;
+    list-style: none;
+
+}
+.rodape__lista-links__item{
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+.rodape__lista-links__item::before{
+    content: '>';
+    margin-right: 8px;
+    color: #f44242;
+}
+.rodape__linha{
+    padding: 15px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+}
+.formulario{
+    background-color: #efecec;
+    padding: 40px 15px 40px 15px;
+    box-shadow: 0 3px 5px #989898;
+}
+.formulario__grupo{
+    margin-bottom: 15px;
+}
+.formulario__label{
+    color: #9b0101;
+}
+.formulario__input{
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px 5px;
+}
+.formulario__btn{
+    border-radius: 300px;
+    border: 3px solid #f00;
+    background-color: #fff;
+    color: #f00;
+    padding: 5px 20px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+}
+@media(min-width: 720px){
+    .sessaoprincipal{
+        padding: 10px 0 0 50px;
+    }
+    .sessaoprincipal__dentro{
+        float: left;
+        width: 48%;
+    }
+    .sobrenos__texto{
+        padding: 10px 100px 10px 100px;
+    }
+    .rodape__coluna{
+        float: left;
+        width: 33.333%;
+        margin: 0px;
+    }
+    .rodape__coluna{
+        background-color: #3c0202;
+        margin: 0px;
+        float: left;
+        width: 33.3333%;
+
+    }
+    .rodape__titulo{
+        border-bottom: 0;
+        float: left;
+        border-left: 1px solid #fff;
+        padding: 10px 0 204px 10px;
+    }
+    .navegacao__lista__rodape{
+        float: left;
+        padding: 10%;
+        overflow: auto;
+    }
+}
