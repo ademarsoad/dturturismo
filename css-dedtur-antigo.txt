@@ -17,11 +17,11 @@
     list-style: none;
     display: inline-block;
 }
-.navegacao__lista__rodape{
+.navegacao-lista-rodape{
     list-style: none;
     display: inline;
 }
-.navegacao__item{
+.navegacao-item{
     text-decoration: none;
     font-size: 18px;
     color: #f44242;
@@ -62,45 +62,7 @@
     padding: 10px 50px 10px 50px;
     font-size: 20px;
 }
-.rodape{
-    
-    background-color: #3c0202;
-    overflow: auto;
-}
-
-.rodape__coluna{
-    margin-top: 40px;
-    margin-bottom: 40px;
-    
-}
-.rodape__titulo{
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    padding: 0 10px 10px 0;
-    font-size: 18px;
-}
-.rodape__lista-links{
-    padding: 0%;
-    list-style: none;
-
-}
-.rodape__lista-links__item{
-    color: #fff;
-    text-decoration: none;
-    margin-bottom: 10px;
-    display: block;
-}
-.rodape__lista-links__item::before{
-    content: '>';
-    margin-right: 8px;
-    color: #f44242;
-}
-.rodape__linha{
-    padding: 15px;
-    text-align: center;
-    background-color: #000;
-    color: #fff;
-}
+23:01 01/08/2021
 .formulario{
     background-color: #efecec;
     padding: 40px 15px 40px 15px;
