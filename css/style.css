@@ -6,6 +6,7 @@ html {
     width: 90%;
     margin: auto;
     position: relative;
+    background-color: #eeeeee;
 }
 
 .clearfix:after {
@@ -121,7 +122,7 @@ html {
     padding-right: 10px;
 }
 .investimento-article {
-    background-color: rgb(70, 236, 236);
+    background-color: #46ecec;
     width: 100%;
     border-radius: 15px;
     font-size: 1.5em;
@@ -129,11 +130,24 @@ html {
     color: black;
 }
 .sessaoprincipal-informacao {
-    background-color: rgb(70, 236, 236);
+    background-color: #46ecec;
     text-align: center;
     border-radius: 15px;
     padding: 10px 0px;
     color: black;
+}
+.sessaoprincipal-informacao p {
+    font-size: 1.5em;
+}
+.sessaoprincipal-opcional {
+    background-color: #46ecec;
+    width: 100%;
+    border-radius: 15px;
+    text-align: center;
+}
+.col-1-2 {
+    display: block;
+    width: 100%;
 }
 
 @media screen and (min-width: 48.75em) {
@@ -169,24 +183,31 @@ html {
         margin: 1%;
         float: left;
     }
-    .investimento-article {
-        background-color: red;
-        width: 150px;
-        height: 150px;
-        display: inline-block;
-        border-radius: 50%;
-        text-align: center;
-        font-size: 1.5em;
-        position: relative;
-        left: 80%;
-        bottom: 11.25em;
+    .sessaoprincipal-informacao {
+        background-color: #ddd;
     }
+    .sessaoprincipal-opcional {
+        background-color: #ee6d3a;
+        width: 200px;
+        height: auto;
+        border-radius: 50%;
+        position: absolute;
+        top: 60%;
+        transform: rotate(-45deg);
+    }
+
     
+    .investimento-article {
+        background-color: #ddd;
+    }
     .rodape-coluna {
         width: 33%;
         float: left;
         border-left: 1px solid white;
         border-bottom: 0;
     }
-   
+    .col-1-2 {
+        display: inline-block;
+        width: 48%;
+    }
 }
