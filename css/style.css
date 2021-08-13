@@ -149,7 +149,24 @@ html {
     display: block;
     width: 100%;
 }
-
+.cadastro {
+    width: 100%;
+    display: block;
+}
+.cadastro label {
+    width: 100%;
+    display: inline-block;
+    font-size: 1.5em;
+}
+.cadastro input {
+    width: 100%;
+    height: 3em;
+    border-radius: 15px;
+}
+input[type="submit"] {
+    display: block;
+    width: 9.36em;
+}
 @media screen and (min-width: 48.75em) {
     .passeio-principal {
         background: transparent;
@@ -192,10 +209,17 @@ html {
         height: auto;
         border-radius: 50%;
         position: absolute;
-        top: 60%;
-        transform: rotate(-45deg);
+        top: 75%;
+        transform: rotate(-25deg);
     }
-
+    .sessaoprincipal-desc-bateevolta {
+        font-size: 1.5em;
+        color: #ee6d3a;
+        background-color: #ddd;
+        text-align: center;
+        border-radius: 15px;
+        height: 3em;
+    }
     
     .investimento-article {
         background-color: #ddd;
