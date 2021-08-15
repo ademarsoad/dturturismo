@@ -55,12 +55,11 @@ html {
 .sessaoprincipal {
     width: 100%;
     display: inline-block;
-    
+    padding-top: 1.2em;
 }
 .imagem-article {
     padding-top: .5em;
-    width: 95%;
-    height: auto;
+    max-width: 95%;
     border-radius: 15px;
     
 }
@@ -68,14 +67,14 @@ html {
     background: #ddd;
     border-radius: 15px;
     text-align: center;
+    
 }
-.sessaoprincipal article h2 {
+.sessaoprincipal h2 {
     font-size: 2em;
     text-transform: uppercase;
 }
-.sessaoprincipal .desc p {
+.desc-inform {
     font-size: 1.5em;
-    max-width: 45ch;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -115,8 +114,6 @@ html {
     
 }
 .rodape-coluna img {
-    background-color: white;
-    border-radius: 50%;
     width: 7.5em;
     padding-bottom: 10px;
     padding-right: 10px;
@@ -135,6 +132,15 @@ html {
     border-radius: 15px;
     padding: 10px 0px;
     color: black;
+}
+ article .sessaoprincipal-desc-bateevolta {
+    background-color: #ddd;
+    overflow: visible;
+    text-overflow: unset;
+    white-space: inherit;
+    padding: 1.5em;
+    border-radius: 15px;
+    color: #ee6d3a;
 }
 .sessaoprincipal-informacao p {
     font-size: 1.5em;
@@ -162,10 +168,14 @@ html {
     width: 100%;
     height: 3em;
     border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 1.4em;
 }
 input[type="submit"] {
     display: block;
     width: 9.36em;
+    background-color: #ccc;
+    font-size: 1.5em;
 }
 @media screen and (min-width: 48.75em) {
     .passeio-principal {
@@ -196,9 +206,15 @@ input[type="submit"] {
         background: #d63d00;
     }
     .sessaoprincipal-div {
-        width: 48%;
-        margin: 1%;
+        width: 44%;
+        margin: 3%;
         float: left;
+        
+    }
+    .sessaoprincipal {
+        margin-left: auto;
+        margin-right: auto;
+        
     }
     .sessaoprincipal-informacao {
         background-color: #ddd;
@@ -212,13 +228,10 @@ input[type="submit"] {
         top: 75%;
         transform: rotate(-25deg);
     }
-    .sessaoprincipal-desc-bateevolta {
+    article .sessaoprincipal-desc-bateevolta {
         font-size: 1.5em;
-        color: #ee6d3a;
-        background-color: #ddd;
         text-align: center;
-        border-radius: 15px;
-        height: 3em;
+        height: 3.4em;
     }
     
     .investimento-article {
