@@ -133,7 +133,7 @@ html {
     padding: 10px 0px;
     color: black;
 }
- article .sessaoprincipal-desc-bateevolta {
+ .sessaoprincipal-desc-bateevolta {
     background-color: #ddd;
     overflow: visible;
     text-overflow: unset;
@@ -158,6 +158,9 @@ html {
 .cadastro {
     width: 100%;
     display: block;
+}
+fieldset {
+    margin-bottom: 100px;
 }
 .cadastro label {
     width: 100%;
