@@ -17,12 +17,34 @@ html {
 .cabecalho {
     text-align: center;
 }
+#check {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s linear;
+}
+.check-label {
+    position: absolute;
+    left: 0px;
+    top: 140px;
+    
+}
+#check:checked ~ .navegacao {
+    position: relative;
+    transform: translateX(107%);
+    transition: all .5s linear;
+}
 .navegacao-topo-logo {
     padding: 10px;
 }
 .navegacao {
+    width: 100%;
     text-align: center;
     background: #e64f14;
+    position: absolute;
+    left: -107%;
+    transition: all .5s linear;
 }
 .navegacao-lista {
     margin: 0;
@@ -51,11 +73,13 @@ html {
     box-sizing: border-box; 
     border-radius: 15px;
     margin: .5em 0;
+    transition: all .5s linear;
 }
 .sessaoprincipal {
     width: 100%;
     display: inline-block;
     padding-top: 1.2em;
+    transition: all .5s linear;
 }
 .imagem-article {
     padding-top: .5em;
@@ -134,13 +158,14 @@ html {
     color: black;
 }
  .sessaoprincipal-desc-bateevolta {
-    background-color: #ddd;
+    background-color: white;
     overflow: visible;
     text-overflow: unset;
     white-space: inherit;
     padding: 1.5em;
     border-radius: 15px;
     color: #ee6d3a;
+    line-height: 1.5;
 }
 .sessaoprincipal-informacao p {
     font-size: 1.5em;
@@ -180,7 +205,15 @@ input[type="submit"] {
     background-color: #ccc;
     font-size: 1.5em;
 }
+.img-barraca {
+    width: 100%;
+}
+
 @media screen and (min-width: 48.75em) {
+    .check-img {
+        visibility: hidden;
+
+    }
     .passeio-principal {
         background: transparent;
         
@@ -189,6 +222,8 @@ input[type="submit"] {
         background: transparent;
         float: right;
         margin-top: 5em;
+        position: inherit;
+        width: inherit;
     }
     .navegacao-topo-logo {
         float: left;
@@ -231,10 +266,20 @@ input[type="submit"] {
         top: 75%;
         transform: rotate(-25deg);
     }
-    article .sessaoprincipal-desc-bateevolta {
+    .sessaoprincipal-desc-bateevolta {
         font-size: 1.5em;
         text-align: center;
-        height: 3.4em;
+        height: auto;
+        
+        
+    }
+    .img-onibus {
+        float: left;
+    }
+    .img-barraca {
+        width: 300px;
+        float: right;
+
     }
     
     .investimento-article {
