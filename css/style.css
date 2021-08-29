@@ -23,6 +23,7 @@ html {
     top: 0;
     left: 0;
     transition: all .5s linear;
+    
 }
 .check-label {
     position: absolute;
@@ -206,6 +207,9 @@ input[type="submit"] {
     background-color: #ccc;
     font-size: 1.5em;
 }
+.img-onibus {
+    max-width: 100%;
+}
 .img-barraca {
     width: 100%;
 }
@@ -225,6 +229,7 @@ input[type="submit"] {
         margin-top: 5em;
         position: inherit;
         width: inherit;
+        transition: none;
     }
     .navegacao-topo-logo {
         float: left;
@@ -240,9 +245,11 @@ input[type="submit"] {
     }
     .navegacao a {
         color: #3c0202;
+        transition: none;
     }
     .navegacao a:hover {
         background: #d63d00;
+        transition: none;
     }
     .sessaoprincipal-div {
         width: 44%;
@@ -270,9 +277,7 @@ input[type="submit"] {
     .sessaoprincipal-desc-bateevolta {
         font-size: 1.5em;
         text-align: center;
-        height: auto;
-        
-        
+        min-height: 400px;
     }
     .img-onibus {
         float: left;
@@ -280,7 +285,7 @@ input[type="submit"] {
     .img-barraca {
         width: 300px;
         float: right;
-
+        border-radius: 50%;
     }
     
     .investimento-article {
