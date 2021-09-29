@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <title>DED Turismo</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="ckeditor/adapters/jquery.js"></script>
+    <script>
+        $( document ).ready( function(){
+            $( 'textarea#descricao' ).ckeditor();
+        });
+
+    </script>
 </head>
 <body>
     <header class="cabecalho">
@@ -24,17 +34,21 @@
     <section class="sessaoprincipal">
         <fieldset>
             <legend>Cadastro de Excursão</legend>
-        <form action="#" method="POST" class="cadastro">
+        <form action="Cadastroexcursao.php" method="POST" class="cadastro">
             <label for="titulo">Titulo:</label>
             <input type="text" id="titulo" name="titulo" autofocus required>
             <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" rows="10" cols="33" style="width: 100%;" placeholder="Descrição da excursão"></textarea>
+            <textarea id="descricao" name="descricao" style="width: 100%;" placeholder="Descrição da excursão"></textarea>
             <label for="dataIda">Data de Ida:</label>
             <input type="date" id="dataIda" name="dataIda">
             <label for="dataVolta">Data de Volta:</label>
             <input type="date" id="dataVolta" name="dataVolta">
             <label for="valor">Valor:</label>
             <input type="text" id="valor" name="valor">
+            <input type="radio" id="valido" name="checkValido">
+            <label for="valido">Ativo</label>
+            <input type="radio" id="finalizado" name="checkValido">
+            <label for="finalizado">Finalizado</label>
 
             <input type="submit" value="Cadastrar">
         </form> 
@@ -76,5 +90,6 @@
             <div class="rodape-linha" >
                 &copy; Todos os direitos reservados
             </div>
+           
 </body>
 </html>
