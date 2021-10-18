@@ -52,7 +52,6 @@ class Cliente {
     public function setData_nasc($data_nasc) {
         return $this->data_nasc = $data_nasc;
     }
-
 }
 
 ?>

@@ -9,10 +9,10 @@
     echo $e->getMessage();
     }
     */
+            $conn = new PDO("mysql:host=localhost; dbname=dturturismo", "root", "");
 
-    $conn = new PDO("mysql:host=localhost; dbname=dturturismo", "root", "");
-
-    echo "Conexão bem sucessida";
-
+            echo "Conexão bem sucessida";
+       
+        
 
 ?>

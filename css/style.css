@@ -216,6 +216,7 @@ input[type="submit"] {
 
 
 @media screen and (min-width: 48.75em) {
+    
     .check-img {
         visibility: hidden;
 
@@ -302,5 +303,17 @@ input[type="submit"] {
         display: inline-block;
         width: 48%;
     }
-    
+    .clienteTabela {
+        font-size: 1.2em;
+        width: 100%;
+        text-align: center;
+    }
+    .clienteTabela thead {
+        background-color: black;
+        font-weight: bold;
+        color: #fff;
+    }
+    .clienteTabela tbody:nth-child(2n) {
+        background-color: #ccc;
+    }
 }

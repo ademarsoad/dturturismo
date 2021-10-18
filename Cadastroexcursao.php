@@ -1,6 +1,16 @@
 <?php
 
 include_once("conexao.php");
+include_once("config.php");
+
+$excursao = new Excursao;
+
+$excursao->setTitulo_excursao($_POST['titulo']);
+$excursao->setDesc_excursao(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
+$excursao->setValor_excursao($_POST['valor']);
+$excursao->setData_excursao_ida($_POST['dataIda']);
+$excursao->setData_excursao_volta($_POST['dataVolta']);
+$excursao->setExcursao_valida($_POST['checkValido']);
 
 
 $titulo_excursao = $_POST["titulo"];
@@ -13,7 +23,8 @@ $excursao_valida = $_POST["checkValido"];
 //$stmt = $conn->prepare("INSERT INTO excursao(titulo_excursao, desc_excursao, valor_excursao, data_excursao_ida, data_excursao_volta, excursao_valida)
 //values (?, ?, ?, ?, ?, ?)");
 
-//$stmt->execute(array($titulo_excursao, $desc_excursao, $valor_excursao, $data_excursao_ida, $data_excursao_volta, $excursao_valida));
+//$stmt->execute(array($excursao->getTitulo_excursao(), $excursao->getDesc_excursao(), $excursao->getValor_excursao(), $excursao->getData_excrusao_ida(),
+//$excursao->getData_excrusao_volta(), $excursao->getExcursao_valida()));
 
 
 
