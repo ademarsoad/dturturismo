@@ -52,12 +52,12 @@ foreach ($rows as $row) {
         </nav>
     </header>
     <section class="sessaoprincipal">
-        <form action="TodosClientes.php">
+        <form action="TodosClientes.php" method="POST" class="cadastro">
             <input type="text" id="pesquisaCliente" name="pesquisa">
-            <input type="button" value="Pesquisar">
-        </form>     
-    <hr />
-        <table class="clienteTabela"> 
+            <input type="submit" value="Pesquisar">
+        </form>
+        <hr />
+        <table class="clienteTabela">
             <thead>
                 <tr>
                     <th>Nome do Cliente</th>
@@ -71,35 +71,41 @@ foreach ($rows as $row) {
             </thead>
             <tbody>
                 <?php
-                include_once("conexao.php");
+                include_once("class/conexao.php");
+                if(empty($_POST['pesquisa'])) {
+                    $_POST['pesquisa'] = "";
+                }else if ($_POST['pesquisa'] == "") {
 
-                $pesquisaCliente = "%". trim($_GET["pesquisa"]) . "%";
+                    echo "<br />Nome para pesquisa precisa ser digitado";
+                } else {
 
-                
-                $sth = $conn->prepare('SELECT * FROM cliente WHERE nome_cliente like :nome_cliente');
-                $sth->bindValue(":nome_cliente", '%'.$pesquisaCliente);
-                $sth->execute();
+                    $pesquisaCliente = "%" . trim($_POST["pesquisa"]) . "%";
 
-                // fetch all rows into array, by default PDO::FETCH_BOTH is used
-                $rows = $sth->fetchAll();
+                    $sth = $conn->prepare('SELECT * FROM cliente WHERE nome_cliente like :nome_cliente');
+                    $sth->bindValue(":nome_cliente", '%' . $pesquisaCliente);
+                    $sth->execute();
 
-                // iterate over array by index and by name
+                    // fetch all rows into array, by default PDO::FETCH_BOTH is used
+                    $rows = $sth->fetchAll();
 
-                foreach ($rows as $row) {
+                    // iterate over array by index and by name
+
+                    foreach ($rows as $row) {
                 ?>
-               <tr>
-                   <td><?php printf(ucfirst("$row[nome_cliente]"));  ?></td>
-                   <td><?php printf("$row[tel_cliente]");  ?></td>
-                   <td><?php printf("$row[end_cliente]");  ?></td>
-                   <td><?php printf("$row[email_cliente] "); ?></td>
-                   <td><?php printf("$row[cpf_cliente] "); ?></td>
-                   <td><?php printf("$row[rg_cliente] "); ?></td>
-                   <td><?php printf("$row[data_nasc] "); ?></td>
-               </tr> 
-            
-           <?php  } ?>
-                 
-               
+                        <tr>
+                            <td><?php printf(ucfirst("$row[nome_cliente]"));  ?></td>
+                            <td><?php printf("$row[tel_cliente]");  ?></td>
+                            <td><?php printf("$row[end_cliente]");  ?></td>
+                            <td><?php printf("$row[email_cliente] "); ?></td>
+                            <td><?php printf("$row[cpf_cliente] "); ?></td>
+                            <td><?php printf("$row[rg_cliente] "); ?></td>
+                            <td><?php printf("$row[data_nasc] "); ?></td>
+                        </tr>
+
+                <?php }
+                } ?>
+
+
             </tbody>
         </table>
     </section>
