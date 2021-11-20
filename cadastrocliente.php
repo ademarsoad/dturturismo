@@ -1,7 +1,7 @@
 <?php
 
 include_once("config.php");
-include_once("conexao.php");
+include_once("class/conexao.php");
 
 $cliente = new Cliente;
 

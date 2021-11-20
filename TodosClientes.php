@@ -30,6 +30,16 @@ foreach ($rows as $row) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <title>DED Turismo</title>
+
+    <style>
+        .btn-editar {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            margin: 0px 5px;
+            text-decoration: none;
+}
+    </style>
 </head>
 
 <body>
@@ -67,17 +77,17 @@ foreach ($rows as $row) {
                     <th>CPF</th>
                     <th>R.G</th>
                     <th>Data de Nascimento</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 include_once("class/conexao.php");
+
                 if(empty($_POST['pesquisa'])) {
                     $_POST['pesquisa'] = "";
-                }else if ($_POST['pesquisa'] == "") {
-
                     echo "<br />Nome para pesquisa precisa ser digitado";
-                } else {
+                }else {
 
                     $pesquisaCliente = "%" . trim($_POST["pesquisa"]) . "%";
 
@@ -99,7 +109,8 @@ foreach ($rows as $row) {
                             <td><?php printf("$row[email_cliente] "); ?></td>
                             <td><?php printf("$row[cpf_cliente] "); ?></td>
                             <td><?php printf("$row[rg_cliente] "); ?></td>
-                            <td><?php printf("$row[data_nasc] "); ?></td>
+                            <td><?php printf(date_format(date_create("$row[data_nasc]"), 'd/m/Y')); ?></td>
+                            <td><a href="" class="btn-editar">Editar</a> <a href="" class="btn-deletar">Deletar</a></td>
                         </tr>
 
                 <?php }

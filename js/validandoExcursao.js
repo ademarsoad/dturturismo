@@ -6,8 +6,12 @@ function checaDatas() {
 
     var strData = ano + "-" +(mes+1) + "-" + dia;
 
-    var dataExcursao = document.getElementById('dataIda').value;
+    var dataIda = document.getElementById('dataIda').value;
+    var dataVolta = document.getElementById('dataVolta').value;
 
-    alert('Dia atual: ' + strData + ' Dia da excursao: ' + dataExcursao);
+    if(dataIda < strData) {
+        alert("Dia do passeio é anterior ao dia atual");
+    }
+    
 
 }

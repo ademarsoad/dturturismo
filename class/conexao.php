@@ -1,18 +1,34 @@
 <?php
-/*try{
-    $conn = new PDO('pgsql:host=localhost;port=5432;dbname=dturturismo', 'postgres','1234567');
-    if($conn) {
-    echo "database conectado";
-    }
-    }catch (PDOException $e){
-    // report error message
-    echo $e->getMessage();
+/*
+class Conexao {
+
+    private $login = "root";
+    private $senha = "";
+    private $banco = "dturturimo";
+    private $conn;
+ 
+    public function __construct() {
+        try{
+            $conn = new PDO("mysql:host=localhost; dbname=dturturismo", "root", "");
+            if($conn) {
+            echo "database conectado";
+            }
+            }catch (PDOException $e){
+            // report error message
+            echo $e->getMessage();
+            }
     }
     */
-            $conn = new PDO("mysql:host=localhost; dbname=dturturismo", "root", "");
 
-            echo "Conexão bem sucessida";
-       
-        
+    try{
+        $conn = new PDO("mysql:host=localhost; dbname=dturturismo", "root", "");
+    }catch(PDOException $e) {
+        echo "Erro com o banco de dados ". $e;
+    }catch(Exception $e) {
+        echo "Erro generico " . $e;
+    }
+    
+
+    
 
 ?>

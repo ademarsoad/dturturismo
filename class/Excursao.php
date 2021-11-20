@@ -7,6 +7,7 @@ class Excursao {
     private $data_excursao_ida;
     private $data_excursao_volta;
     private $excursao_valida;
+    private $intro_excursao;
 
     
     public function getTitulo_excursao() {
@@ -27,6 +28,9 @@ class Excursao {
     public function getExcursao_valida():bool {
         return $this->excursao_valida;
     }
+    public function getIntro_excursao(){
+        return $this->intro_excursao;
+    }
     public function setTitulo_excursao($titulo_excursao) {
         $this->titulo_excursao = $titulo_excursao;
     }
@@ -44,6 +48,9 @@ class Excursao {
     }
     public function setExcursao_valida($excursao_valida) {
         $this->excursao_valida = $excursao_valida;
+    }
+    public function setIntro_excursao($intro_excursao) {
+        $this->intro_excursao = $intro_excursao;
     }
 
 }

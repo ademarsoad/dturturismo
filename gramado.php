@@ -20,7 +20,7 @@
         <img src="img/Logo-DED-Tur-colorida%5B108%5D-150x150.png" class="navegacao-topo-logo">
         <nav class="navegacao">
             <ul class="navegacao-lista">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="excursao.html">Excursões</a></li>
                 <li><a href="bateevolta.html">Bate e Volta</a></li>
                 <li><a href="sobrenos.html">Sobre Nós</a></li>
@@ -29,50 +29,23 @@
         </nav>
     </header>
     <section class="passeio-principal">
-        <img class="imgcentral" src="img/deltaparnaiba.jpg" alt="Entrada de Gramado">
-        
-            <h1>Delta do Parnaíba</h1>
-            <h2>Incluso no Pacote</h2>
-            <p>O Delta do Rio Parnaíba corresponde à foz do rio Parnaíba que se abre em cinco braços que deságuam em mar aberto, 
-                no Oceano Atlântico. Sua paisagem exuberante, repleta de dunas, mangues e ilhotas, com fauna e flora peculiares, 
-                garantem um cenário paradisíaco. O Delta do Parnaíba é o único Delta das Américas que deságua em 
-                mar aberto e o 3º maior do mundo, atrás apenas dos rios Nilo (África) e MeKong (Vietnã).</p>
+        <img class="imgcentral" src="img/Gramado.jpg" alt="Entrada de Gramado">
+        <?php
 
-                <h3>Descrição do Passeio de catamarã pelo Delta:</h3>
-                <p>Passeio ao Delta do Rio Parnaíba em embarcação coletiva, com parada para demonstração da cata do caranguejo, 
-                    banho de mar e caminhada nas dunas. O passeio dura aproximadamente 6 horas, por isso está incluso lanche de frutas, 
-                    almoço e, dependendo da época, degustação de caranguejos.</p>
-                
-                <h3>Descrição Praia de Itaqui:</h3>
-                <p>Praia de localização privilegiada e águas calmas, com piscinas naturais em alguns horários. Muito procurada 
-                    por praticantes de Kitesurf.</p>
-                
-                <h3>Descrição Praia de Barra Grande:</h3>
-                <p>A praia de águas calmas e quentinhas fica em uma charmosa cidade pé na areia, bem ao estilo de Jericoacoara.</p>
-                
-                <h3>Descrição do Porto das Barcas:</h3>
-                <p>
-                    Porto das Barcas é uma região recém-restaurada com diversos armazéns antigos que hoje foram transformados em 
-                    lojas de artesanato, restaurantes, bares e agências de turismo. Um passeio imperdível para imergir na cultura, 
-                    culinária e costumes locais.
-                </p>
-            <ul>
-                <li>Ônibus executivo com banheiro</li>
-                <li>Hospedagem com café da manhã</li>
-                <li>Passeio de catamarã pelo delta</li>
-                <li>1 almoço + 1 lanche</li>
-                <li>Praia de Itaqui</li>
-                <li>Praia de Barra Grande</li>
-                <li>Passeio à noite ao Porto das Barcas</li>
-            </ul>
-            <p>Saida: Terminal do bairro Nova Metropole, às 21:00hs</p>
-            <p>Retorno: segunda-feira, às 13:00hs</p>
+include_once("class/conexao.php");
 
-            <h2>Investimento:</h2>
-            <p>R$ 560,00 à vista</p>
-            <p>3x R$ 187,00 <br> (Boleto ou tranfêrencia)</p>
-            
-            
+$query = $conn->prepare("SELECT * FROM excursao WHERE id_excursao = :id_excursao");
+$query->bindValue(":id_excursao", 1);
+$query->execute();
+
+$rows = $query->fetchAll();
+
+foreach ($rows as $row) {
+
+?>
+           <h1><?php printf("$row[titulo_excursao]"); ?> </h1> 
+           <?php printf(html_entity_decode( "$row[desc_excursao]"));  }?>
+
     </section>
        <hr>
        <footer class="rodape clearfix">

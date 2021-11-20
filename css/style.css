@@ -94,6 +94,7 @@ html {
     text-align: center;
     
 }
+
 .sessaoprincipal h2 {
     font-size: 2em;
     text-transform: uppercase;
@@ -104,6 +105,7 @@ html {
     text-overflow: ellipsis;
     white-space: nowrap;
     padding-left: 5px;
+    max-width: 500px;
 }
 .sessaoprincipal a {
     text-align: right;
@@ -316,4 +318,5 @@ input[type="submit"] {
     .clienteTabela tbody:nth-child(2n) {
         background-color: #ccc;
     }
+    
 }

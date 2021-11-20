@@ -38,12 +38,14 @@
         <form action="Cadastroexcursao.php" method="POST" class="cadastro">
             <label for="titulo">Titulo:</label>
             <input type="text" id="titulo" name="titulo" autofocus required>
+            <label for="intro">Introdução</label>
+            <input type="text" id="intro" name="intro">
             <label for="descricao">Descrição:</label>
             <textarea id="descricao" name="descricao" style="width: 100%;" placeholder="Descrição da excursão"></textarea>
             <label for="dataIda">Data de Ida:</label>
             <input type="date" id="dataIda" name="dataIda" onchange="checaDatas()">
             <label for="dataVolta">Data de Volta:</label>
-            <input type="date" id="dataVolta" name="dataVolta">
+            <input type="date" id="dataVolta" name="dataVolta" onchange="checaDatas()">
             <label for="valor">Valor:</label>
             <input type="text" id="valor" name="valor">
             <input type="radio" id="valido" name="checkValido">

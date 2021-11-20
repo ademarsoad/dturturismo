@@ -12,14 +12,12 @@
     <title>DED Turismo</title>
 </head>
 <body>
-    <header class="cabecalho">
-        <input type="checkbox" id="check">
-        <label for="check" class="check-label" >
-            <img src="img/icone.png" class="check-img" >
-        </label>
-        <a href="index.html">
-            <img src="img/Logo-DED-Tur-colorida%5B108%5D-150x150.png" class="navegacao-topo-logo">
-        </a>
+   <header class="cabecalho clearfix">
+    <input type="checkbox" id="check">
+    <label for="check" class="check-label" >
+        <img src="img/icone.png" class="check-img" >
+    </label>
+        <img src="img/Logo-DED-Tur-colorida%5B108%5D-150x150.png" class="navegacao-topo-logo">
         <nav class="navegacao">
             <ul class="navegacao-lista">
                 <li><a href="index.php">Home</a></li>
@@ -30,36 +28,29 @@
             </ul>
         </nav>
     </header>
-    <section>
-        <img class="imgcentral" src="img/imagens.php.png" alt="Porto de galinhas">
-    </section>
+    <section class="passeio-principal">
+        <img class="imgcentral" src="img/Gramado.jpg" alt="Entrada de Gramado">
+        <?php
+
+include_once("class/conexao.php");
+
+$query = $conn->prepare("SELECT * FROM excursao WHERE id_excursao = :id_excursao");
+$query->bindValue(":id_excursao", 4);
+$query->execute();
+
+$rows = $query->fetchAll();
+
+foreach ($rows as $row) {
     
-        <article>
-            <h2>O que você precisa saber</h2>
-            
-           <p class="sessaoprincipal-desc-bateevolta clearfix">
-            <img src="img/onibus.jpg" alt="" class="img-onibus">
-               Passeios bate e volta são passeios de um dia para algum lugar lindo do nosso ceará ou outra região perto. Saindo pela manhã cedo 
-               e voltando ao final do dia. Contamos sempre com transportes confortaveis e seguros para melhor atendermos, sempre 
-               ficando em um ponto de apoio sugrerido por nós*. Nos pontos de apoio <img src="img/destp.jpg" alt="" class="img-barraca">  você poderá usufruir de comidas e bebidas vendidas no 
-               local, sempre com cardápios variados e com muitas delícias.
-           </p>
-        </article>
-        <h5>*Não é obrigatorio ficar no local</h5>
-        <section>
-            <div class="sessaoprincipal">
-                <div class="sessaoprincipal-div">
-                    <img class="imagem-article" src="img/icaraideamontada.jpg" >
-                    
-                    <h2>Icarai de Amontada</h2>
-                    <p class="desc-inform">Passeio de bate e volta para Iacari de Amontada.</p>
-                    <a href="icaraideamontada.html"> <p>Continue Lendo...</p></a>
-                </div>
-                
-            </div>
-        </section>
-    <hr>
-    <footer class="rodape clearfix">
+    
+
+?>
+           <h1><?php printf("$row[titulo_excursao]"); ?> </h1> 
+           <?php printf(html_entity_decode( "$row[desc_excursao]"));  }?>
+
+    </section>
+       <hr>
+       <footer class="rodape clearfix">
         <div class="rodape-coluna ">
             <h2 class="rodape-titulo">Midias Sociais</h2>
              <ul class="navegacao-lista">
