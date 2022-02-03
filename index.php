@@ -48,10 +48,10 @@
             $query->execute();
             
             $rows = $query->fetchAll();
-
+            
             foreach ($rows as $row) {
                 $link = $row['titulo_excursao'];
-                
+                    if($row['excursao_valida'] == 1){
             ?>
                 <div class="sessaoprincipal-div ">
                     <img class="imagem-article" src="img/<?php printf("$row[titulo_excursao]") ?>.jpg">
@@ -67,7 +67,7 @@
                     </a>
                 </div>
 
-            <?php } ?>
+            <?php }} ?>
         </div>
     </section>
     <hr>

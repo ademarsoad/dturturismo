@@ -209,14 +209,27 @@ input[type="submit"] {
     background-color: #ccc;
     font-size: 1.5em;
 }
+input#valido {
+    width: 40px;
+    display: inline;
+    text-align: left;
+}
 .img-onibus {
     max-width: 100%;
 }
 .img-barraca {
     width: 100%;
 }
-
-
+.infocliente {
+    font-size: 1.2em;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100%;
+}
+.form-cliente-excursao {}
 @media screen and (min-width: 48.75em) {
     
     .check-img {
@@ -309,6 +322,7 @@ input[type="submit"] {
         font-size: 1.2em;
         width: 100%;
         text-align: center;
+        padding-bottom: 10px;
     }
     .clienteTabela thead {
         background-color: black;
@@ -318,5 +332,7 @@ input[type="submit"] {
     .clienteTabela tbody:nth-child(2n) {
         background-color: #ccc;
     }
-    
+    .infocliente {
+        width: 30%;
+    }
 }

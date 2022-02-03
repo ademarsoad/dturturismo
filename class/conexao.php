@@ -22,6 +22,7 @@ class Conexao {
 
     try{
         $conn = new PDO("mysql:host=localhost; dbname=dturturismo", "root", "");
+        
     }catch(PDOException $e) {
         echo "Erro com o banco de dados ". $e;
     }catch(Exception $e) {

@@ -1,4 +1,9 @@
 <?php
+include_once("DAOCliente.php");
+include_once("DAOCliente_excursao.php");
+
+$dao = new DAOCliente;
+$ce = new DAOCliente_excursao;
 
 session_start();
 if (!isset($_SESSION['id_usuario'])) {
@@ -28,21 +33,24 @@ if (!isset($_SESSION['id_usuario'])) {
             margin: 0px 5px;
             text-decoration: none;
 }
-    </style>
-    <script>
-    function excluir() {
-    var x = confirm("Deseja realmenta excluir");
-    if(x == true) {
-        alert("Item será excluido");
-    }else {
-        alert("Item não será excluido");
-    }
+.infocliente {
+    font-size: 1.2em;
+    padding-left: 10px;
     
 }
-</script>
+
+    </style>
+    
 </head>
 
 <body>
+    <?php
+        if(isset($_GET['id_pg']) && !empty($_GET['id_pg']) ) {
+            $idCliente = $_GET['id_pg'];
+            $res = $dao->chamaCliente($idCliente);
+        }
+
+    ?>
     <header class="cabecalho">
         <a href="index.html">
             <img src="img/Logo-DED-Tur-colorida%5B108%5D-150x150.png" class="navegacao-topo-logo">
@@ -64,49 +72,48 @@ if (!isset($_SESSION['id_usuario'])) {
         </nav>
     </header>
     <section class="sessaoprincipal">
-        <form action="TodosClientes.php" method="POST" class="cadastro">
-            <input type="text" id="pesquisaCliente" name="pesquisa">
-            <input type="submit" value="Pesquisar">
-        </form>
-        <hr />
-        <table class="clienteTabela">
+        <div class="infocliente">
+            <p>Pagina do Cliente: <?php echo $res['nome_cliente'] ?></p>
+            <p>Endereço do Cliente: <?php echo $res['end_cliente'] ?></p>
+            <p>Telefone do Cliente: <?php echo $res['tel_cliente'] ?></p>
+            <p>data de Nascimento: <?php printf(date_format(date_create("$res[data_nasc]"), 'd/m/Y')); ?></p>
+            <p>Email do Cliente: <?php echo $res['email_cliente'] ?></p>
+        </div>
+        <div>
+            <table class="clienteTabela">
             <thead>
                 <tr>
-                    <th>Nome do Cliente</th>
-                    <th>Telefone</th>
-                    <th>Endereço</th>
-                    <th>Email</th>
-                    <th>CPF</th>
-                    <th>R.G</th>
-                    <th>Data de Nascimento</th>
-                    <th></th>
+                    <th>Passeio</th>
+                    <th>Valor da Excursao</th>
+                    <th>Data de Ida</th>
+                    <th>Data de Volta</th>
+                    <th>Assento</th>
+                    <th>Quarto</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 <?php
-                include_once("DAOCliente.php");
-                    $pessoa = new DAOCliente;
+                    if(isset($_GET['id_pg'])){
+                        $rows = $ce->todosPasseios($idCliente);
+                        foreach($rows as $row) {
+                         ?>
+                         <tr>
+                            <td><?php printf("$row[titulo_excursao]");  ?></td>
+                            <td><?php printf("$row[valor_excursao]");  ?></td>
+                            <td><?php printf(date_format(date_create("$row[data_excursao_ida]"), 'd/m/Y')); ?></td>
+                            <td><?php printf(date_format(date_create("$row[data_excursao_volta]"), 'd/m/Y')); ?></td>
+                            <td><?php printf("$row[ascento]");  ?></td>
+                            <td><?php printf("$row[quarto] "); ?></td>
+                         </tr>
+                           
 
-                    if(isset($_POST['pesquisa'])) {
-                        $nomeCliente = $_POST['pesquisa'];
-                        $rows = $pessoa->pesquisaCliente($nomeCliente);
-                        foreach ($rows as $row) {
-                            ?>
-                                    <tr>
-                                        <td><a href="paginacliente.php?id_pg=<?php echo $row["id_cliente"]; ?>" > <?php printf(ucfirst("$row[nome_cliente]"));  ?></a></td>
-                                        <td><?php printf("$row[tel_cliente]");  ?></td>
-                                        <td><?php printf("$row[end_cliente]");  ?></td>
-                                        <td><?php printf("$row[email_cliente] "); ?></td>
-                                        <td><?php printf("$row[cpf_cliente] "); ?></td>
-                                        <td><?php printf("$row[rg_cliente] "); ?></td>
-                                        <td><?php printf(date_format(date_create("$row[data_nasc]"), 'd/m/Y')); ?></td>
-                                        <td><a href="cadastrocliente.php?id_up=<?php echo $row["id_cliente"]; ?>" class="btn-editar">Editar</a> 
-                                        <a href="TodosClientes.php?id=<?php echo $row["id_cliente"]; ?>" class="btn-deletar" onclick="excluir()">Deletar</a></td>
-                                    </tr>
-            
-                            <?php } } ?>
+                       <?php } } ?>
+
             </tbody>
-        </table>
+
+            </table>
+        </div>
     </section>
     <footer class="rodape clearfix">
         <div class="rodape-coluna ">
@@ -146,11 +153,3 @@ if (!isset($_SESSION['id_usuario'])) {
 </body>
 
 </html>
-<?php
-if (isset($_GET['id'])) {
-    $id_pessoa = addslashes($_GET['id']);
-    $pessoa->deletaCliente($id_pessoa);
-    header("location: TodosClientes.php");
-}
-
-?>

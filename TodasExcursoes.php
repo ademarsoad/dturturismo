@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if (!isset($_SESSION['id_usuario'])) {
     header("location: login.php");
@@ -64,7 +63,7 @@ if (!isset($_SESSION['id_usuario'])) {
         </nav>
     </header>
     <section class="sessaoprincipal">
-        <form action="TodosClientes.php" method="POST" class="cadastro">
+        <form action="TodasExcursoes.php" method="POST" class="cadastro">
             <input type="text" id="pesquisaCliente" name="pesquisa">
             <input type="submit" value="Pesquisar">
         </form>
@@ -72,36 +71,35 @@ if (!isset($_SESSION['id_usuario'])) {
         <table class="clienteTabela">
             <thead>
                 <tr>
-                    <th>Nome do Cliente</th>
-                    <th>Telefone</th>
-                    <th>Endereço</th>
-                    <th>Email</th>
-                    <th>CPF</th>
-                    <th>R.G</th>
-                    <th>Data de Nascimento</th>
+                    <th>Titulo Excursao</th>
+                    <th>Valor da Excursao</th>
+                    <th>Data da ida</th>
+                    <th>Data da Volta</th>
+                    <th>Excursao Ativa</th>
+                    <th>Descrição</th>
+                    
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                include_once("DAOCliente.php");
-                    $pessoa = new DAOCliente;
+                include_once("DAOExcursao.php");
+                    $excursao = new DAOExcursao;
 
                     if(isset($_POST['pesquisa'])) {
-                        $nomeCliente = $_POST['pesquisa'];
-                        $rows = $pessoa->pesquisaCliente($nomeCliente);
+                        $tituloExcursao = $_POST['pesquisa'];
+                        $rows = $excursao->pesquisaExcursao($tituloExcursao);
                         foreach ($rows as $row) {
                             ?>
                                     <tr>
-                                        <td><a href="paginacliente.php?id_pg=<?php echo $row["id_cliente"]; ?>" > <?php printf(ucfirst("$row[nome_cliente]"));  ?></a></td>
-                                        <td><?php printf("$row[tel_cliente]");  ?></td>
-                                        <td><?php printf("$row[end_cliente]");  ?></td>
-                                        <td><?php printf("$row[email_cliente] "); ?></td>
-                                        <td><?php printf("$row[cpf_cliente] "); ?></td>
-                                        <td><?php printf("$row[rg_cliente] "); ?></td>
-                                        <td><?php printf(date_format(date_create("$row[data_nasc]"), 'd/m/Y')); ?></td>
-                                        <td><a href="cadastrocliente.php?id_up=<?php echo $row["id_cliente"]; ?>" class="btn-editar">Editar</a> 
-                                        <a href="TodosClientes.php?id=<?php echo $row["id_cliente"]; ?>" class="btn-deletar" onclick="excluir()">Deletar</a></td>
+                                        <td><a href="paginaexcursao.php?id_pe=<?php echo $row["id_excursao"]; ?>"><?php printf(ucfirst("$row[titulo_excursao]"));  ?></a></td>
+                                        <td><?php printf("$row[valor_excursao]");  ?></td>
+                                        <td><?php printf(date_format(date_create("$row[data_excursao_ida]"), 'd/m/Y'));  ?></td>
+                                        <td><?php printf(date_format(date_create("$row[data_excursao_volta]"), 'd/m/Y')); ?></td>
+                                        <td><?php if($row['excursao_valida'] == 1) {echo "Ativo"; } else { echo "Desativado";} ?></td>
+                                        <td><?php printf("$row[intro_excursao] "); ?></td>
+                                        <td><a href="cadastroexcursao.php?id_up=<?php echo $row["id_excursao"]; ?>" class="btn-editar">Editar</a> 
+                                        <a href="TodasExcursoes.php?id=<?php echo $row["id_excursao"]; ?>" class="btn-deletar" >Deletar</a></td>
                                     </tr>
             
                             <?php } } ?>
@@ -148,9 +146,9 @@ if (!isset($_SESSION['id_usuario'])) {
 </html>
 <?php
 if (isset($_GET['id'])) {
-    $id_pessoa = addslashes($_GET['id']);
-    $pessoa->deletaCliente($id_pessoa);
-    header("location: TodosClientes.php");
+    $id_excursao = addslashes($_GET['id']);
+    $excursao->apagaExcursao($id_excursao);
+    header("location: TodasExcursoes.php");
 }
 
 ?>
