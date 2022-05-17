@@ -27,7 +27,7 @@ $u = new DAOUsuario;
             <img>
             <fieldset>
                 <legend>Logar no Site</legend>
-                <input type="text" id="log" name="email" placeholder="Usúario" />
+                <input type="text" id="log" name="email" placeholder="Usúario" autofocus />
                 <input type="password" id="senha" name="senha" placeholder="Senha" />
                 <input type="submit" value="Entrar" />
             </fieldset>

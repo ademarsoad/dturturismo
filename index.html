@@ -13,14 +13,16 @@
 </head>
 <body>
     <header class="cabecalho">
+        <a href="index.html">
+            <img src="img/Logo-DED-Tur-colorida%5B108%5D-150x150.png" class="navegacao-topo-logo">
+        </a>
         <input type="checkbox" id="check">
         <label for="check" class="check-label" >
             <img src="img/icone.png" class="check-img" >
         </label>
-        <img src="img/Logo-DED-Tur-colorida%5B108%5D-150x150.png" class="navegacao-topo-logo">
         <nav class="navegacao">
             <ul class="navegacao-lista">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="excursao.html">Excursões</a></li>
                 <li><a href="bateevolta.html">Bate e Volta</a></li>
                 <li><a href="sobrenos.html">Sobre Nós</a></li>
@@ -28,62 +30,43 @@
             </ul>
         </nav>
     </header>
-    <section class="underslide">
-        <!--<img class="imgcentral" src="img/imagens.php.png" alt="Porto de galinhas"> -->
-        <div class="slideshow-container">
-
-            <div class="mySlider fade">
-                
-                <img src="img/a22367_72555d2abcd547f290daff9e56b3b5f7~mv2.jpg_srz_1920_750_85_22_0.50_1.20_0.00_jpg_srz.jpg" style="width: 100%; border-radius: 10px;">
-                <div class="text">Caption One</div>
-            </div>
-
-            <div class="mySlider fade">
-                
-                <img src="img/imagens.php.png" style="width: 100%; border-radius: 10px;">
-                <div class="text">Caption Two</div>
-            </div>
-
-            <div class="mySlider fade">
-                
-                <img src="img/imagens2.png" style="width: 100%; border-radius: 10px;">
-                <div class="text">Caption Three</div>
-            </div>
-        </div>
-        <br>
-        <div style="text-align: center">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>  
-
+    <section>
+        <img class="imgcentral" src="img/imagens.php.png" alt="Porto de galinhas">
     </section>
     <section>
+
         <div class="sessaoprincipal">
             <div class="sessaoprincipal-div ">
-                <img class="imagem-article" src="img/deltaparnaiba.jpg" >
+                <img class="imagem-article" src="img/Delta do Parnaiba.jpg" >
                 
                 <h2>Delta do Parnaíba</h2>
                 <h3>Data: 12 a 15/11/2022</h3>
-                    <p class="desc-inform">A cidade é mais rica em atividades turísticas, cenários belíssimos e possui uma culinária muito diversificada, 
+                    <p class="desc-inform">A cidade é rica em atividades turísticas, cenários belíssimos e possui uma culinária muito diversificada, 
                     com influência europeia dos italianos e alemães.
                     </p>
                 <a href="deltaparnaiba.html"> <p>Continue Lendo...</p></a>
             </div>
             <div class="sessaoprincipal-div ">
-                <img class="imagem-article" src="img/Gramado-Dicas-Melhores-Passeios-Capa-4.jpg" >
+                <img class="imagem-article" src="img/Gramado.jpg" >
                 
                 <h2>Gramado</h2>
                 <h3>Data: 26 a 30/08/2022</h3>
-                    <p class="desc-inform">A cidade é mais rica em atividades turísticas, cenários belíssimos e possui uma culinária muito diversificada, 
+                    <p class="desc-inform">A cidade é rica em atividades turísticas, cenários belíssimos e possui uma culinária muito diversificada, 
                     com influência europeia dos italianos e alemães.
                     </p>
                 <a href="gramado.html"> <p>Continue Lendo...</p></a>
             </div>
+            <div class="sessaoprincipal-div ">
+                <img class="imagem-article" src="img/icaraideamontada.jpg" >
+                
+                <h2>Icarai de Amontada</h2>
+                <h3>Data: 05/09/2021</h3>
+                <p class="desc-inform">Passeio de bate e volta para Iacari de Amontada.</p>
+                <a href="icaraideamontada.html"> <p>Continue Lendo...</p></a>
+            </div>
+            
             
         </div>
-       
-
     </section>
     <hr>
         <footer class="rodape clearfix">
@@ -121,30 +104,5 @@
             <div class="rodape-linha" >
                 &copy; Todos os direitos reservados
             </div>
-
-
-            <script>
-                let slideIndex = 0;
-                showSlides();
-        
-                function showSlides() {
-                    let i;
-                    let slides = document.getElementsByClassName("mySlider");
-                    let dots = document.getElementsByClassName("dot");
-        
-                    for(i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-                    slideIndex++;
-                    if(slideIndex > slides.length) {slideIndex = 1}
-                    for(i = 0; i< dots.length; i++) {
-                        dots[i].className = dots[i].className.replace(" active", "");
-                    }
-                    slides[slideIndex-1].style.display = "block";
-                    dots[slideIndex-1].className += " active";
-                    setTimeout(showSlides, 2000);
-                }
-        
-            </script>
 </body>
 </html>

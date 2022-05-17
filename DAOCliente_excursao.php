@@ -39,7 +39,7 @@ class DAOCliente_excursao {
     }
 
     public function clientePasseio($id_excursao) {
-        $cmd = $this->conn->prepare("select c.nome_cliente, e.data_excursao_ida, e.data_excursao_volta, ascento, quarto from cliente_excursao ce
+        $cmd = $this->conn->prepare("select c.id_cliente, c.nome_cliente, c.rg_cliente, e.id_excursao, e.data_excursao_ida, e.data_excursao_volta, e.valor_excursao, ascento, quarto from cliente_excursao ce
         inner join cliente c on c.id_cliente = ce.id_cliente
         inner join excursao e on e.id_excursao = ce.id_excursao
         where e.id_excursao = :id");
@@ -48,8 +48,26 @@ class DAOCliente_excursao {
         $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+    public function chamarPasseio($clienteidcliente, $excursaoidexcursao) {
+        $cmd = $this->conn->prepare("SELECT ascento, quarto FROM cliente_excursao WHERE id_cliente = :cic and id_excursao = :eie");
+        $cmd->bindValue(":cic", $clienteidcliente);
+        $cmd->bindValue(":eie", $excursaoidexcursao);
+        $cmd->execute();
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
+
+        return $res;
+
+    }
+    public function editarPasseio($iddocliente, $iddaexcursao, $assento, $quarto) {
+        $cmd = $this->conn->prepare("UPDATE cliente_excursao SET ascento = :ass, quarto = :q WHERE id_cliente = :cic AND id_excursao = :eie");
+        $cmd->bindValue(":ass", $assento);
+        $cmd->bindValue(":q", $quarto);
+        $cmd->bindValue(":cic", $iddocliente);
+        $cmd->bindValue(":eie", $iddaexcursao);
+        $cmd->execute();
+        
+    }
 }
-
-
 
 ?>

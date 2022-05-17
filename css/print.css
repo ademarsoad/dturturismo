@@ -1,0 +1,25 @@
+@media print {
+   footer {
+       display: none;
+   }
+    .navegacao {
+        display: none;
+    }
+    .check-label {
+        display: none;
+    }
+    .infocliente, .form-cliente-excursao{
+        display: none;
+    }
+    .btn-imprimi {
+        display: none;
+        visibility: hidden;
+    }
+    .tabela_campo {
+        visibility: collapse;
+        display: none;
+    }
+    table {
+        break-inside: avoid;
+    }
+}

@@ -17,7 +17,7 @@
         <label for="check" class="check-label" >
             <img src="img/icone.png" class="check-img" >
         </label>
-        <a href="index.html">
+        <a href="index.php">
             <img src="img/Logo-DED-Tur-colorida%5B108%5D-150x150.png" class="navegacao-topo-logo">
         </a>
         <nav class="navegacao">
@@ -30,8 +30,35 @@
             </ul>
         </nav>
     </header>
-    <section>
-        <img class="imgcentral" src="img/imagens.php.png" alt="Porto de galinhas">
+    <section class="underslide">
+        <!--<img class="imgcentral" src="img/imagens.php.png" alt="Porto de galinhas"> -->
+        <div class="slideshow-container">
+
+            <div class="mySlider fade">
+                
+                <img src="img/a22367_72555d2abcd547f290daff9e56b3b5f7~mv2.jpg_srz_1920_750_85_22_0.50_1.20_0.00_jpg_srz.jpg" style="width: 100%; border-radius: 10px;">
+                <div class="text">Caption One</div>
+            </div>
+
+            <div class="mySlider fade">
+                
+                <img src="img/imagens.php.png" style="width: 100%; border-radius: 10px;">
+                <div class="text">Caption Two</div>
+            </div>
+
+            <div class="mySlider fade">
+                
+                <img src="img/imagens2.png" style="width: 100%; border-radius: 10px;">
+                <div class="text">Caption Three</div>
+            </div>
+        </div>
+        <br>
+        <div style="text-align: center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>  
+
     </section>
     
         <article>
@@ -94,5 +121,30 @@
          <div class="rodape-linha" >
              &copy; Todos os direitos reservados
          </div>
+
+
+         <script>
+            let slideIndex = 0;
+            showSlides();
+    
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlider");
+                let dots = document.getElementsByClassName("dot");
+    
+                for(i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if(slideIndex > slides.length) {slideIndex = 1}
+                for(i = 0; i< dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+                setTimeout(showSlides, 2000);
+            }
+    
+        </script>
 </body>
 </html>

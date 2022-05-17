@@ -104,7 +104,7 @@ if(!isset($_SESSION['id_usuario'])){
                                             echo "Atualizar";
                                         } else {
                                             echo "Cadastrar";
-                                        }  ?>" onclick="validaEmail()">
+                                        }  ?>" >
             </form>
         </fieldset>
     </section>

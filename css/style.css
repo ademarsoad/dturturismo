@@ -126,6 +126,8 @@ html {
     background: #387e1c96;
     color: white;
     text-align: center;
+    margin-top: 40px;
+    
 }
 .rodape-coluna {
     border-bottom: 2px solid white;
@@ -196,6 +198,12 @@ fieldset {
     display: inline-block;
     font-size: 1.5em;
 }
+#forma_pagamento {
+    background-color: #eeeeee;
+    border-radius: 10px;
+    width: 20%;
+    height: 50px;
+}
 .cadastro input {
     width: 100%;
     height: 3em;
@@ -229,9 +237,79 @@ input#valido {
     display: inline-block;
     width: 100%;
 }
-.form-cliente-excursao {}
-@media screen and (min-width: 48.75em) {
+.form-cliente-excursao {
+    width: 40%;
+}
+.clienteTabela {
+        font-size: 1.2em;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .clienteTabela thead {
+        background-color: black;
+        font-weight: bold;
+        color: #fff;
+    }
+    .clienteTabela tfoot {
+        background-color: #eeeeee;
+        text-align: right;
+    }
+    .clienteTabela tbody:nth-child(2n) {
+        background-color: #ccc;
+    }
     
+    .mySlider {
+        display: none;
+    }
+    img {
+        vertical-align: middle;
+    }
+    .slideshow-container {
+        max-width: 100%;
+        position: relative;
+        margin: auto;
+    }
+    .text {
+        color: #f2f2f2;
+        font-size: 20px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    .numberText {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    .active {
+        background-color: #717171;
+    }
+    .face {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+    }
+
+@media screen and (min-width: 48.75em) {
+    .text {
+        font-size: 20px;
+    }
     .check-img {
         visibility: hidden;
 
@@ -308,6 +386,7 @@ input#valido {
     .investimento-article {
         background-color: #ddd;
     }
+   
     .rodape-coluna {
         width: 33%;
         float: left;
@@ -318,21 +397,15 @@ input#valido {
         display: inline-block;
         width: 48%;
     }
-    .clienteTabela {
-        font-size: 1.2em;
-        width: 100%;
-        text-align: center;
-        padding-bottom: 10px;
-    }
-    .clienteTabela thead {
-        background-color: black;
-        font-weight: bold;
-        color: #fff;
-    }
-    .clienteTabela tbody:nth-child(2n) {
-        background-color: #ccc;
-    }
+    
     .infocliente {
         width: 30%;
+    }
+    .tituloExcursao {
+        font-size: 1.8em;
+        color: #ccc;
+    }
+    .underslide {
+        padding-top: 150px;
     }
 }
